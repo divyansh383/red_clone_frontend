@@ -1,7 +1,7 @@
-.App {
-  text-align: center;
-}
 
+body{
+  min-width: 700px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+/* //-------search bar--------------- */
+/* navbar */
+@media only screen and (max-width: 900px) {
+  .hide-name {
+    display: none;
+    width: 100%;
+  }
+  .userName{
+    width: 100%;
+    background-color: #61dafb;
+  }
+}
+.userName{
+  background-color: aqua;
+}
+/* buttons --postbox.js-------------------*/
+.fa:hover {
+  font-size: larger;
+  text-shadow: 0 0 10px #61dafb; 
+}
+/* --------------------------------------- */
+.modal{
+  height: 100%;
+  width:100%;
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
