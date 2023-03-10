@@ -13,9 +13,6 @@ export default function AddPost() {
   let userdata=JSON.parse(User.user);
   console.log(userdata.id);
   let {makePost}=useContext(AuthContext);
-  function check(){
-    console.log("testing")
-  }
   if(User.user==null){
     return(
       <p> Create an account to make a post</p>

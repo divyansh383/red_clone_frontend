@@ -1,5 +1,5 @@
 import React, { useState, useEffect,useContext } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import AuthContext from '../context/AuthContext'
 import CommentTree from './CommentTree';
 //---------------------------------------------------
@@ -9,6 +9,7 @@ export default function PostView(props) {
   let {User}=useContext(AuthContext);
   let userdata=JSON.parse(User.user);
   let {commentCount,setCommentCount}=useContext(AuthContext);
+  const navigate=useNavigate();
   useEffect(() => {
     if (Object.keys(props).length === 0) {
       let getPost = async () => {
@@ -24,6 +25,10 @@ export default function PostView(props) {
   const [comment,setComment]=useState('');
   let addComment=async(event)=>{
     event.preventDefault();
+    if(userdata==null){
+      navigate('/login');
+      return;
+    }
     let response=await fetch('http://localhost:8000/addComment',
       {
         method:"POST",
@@ -73,13 +78,18 @@ export default function PostView(props) {
     display:"grid",
     gridTemplateColumns: "2fr 1fr",
     margin:"100px 15vw",
+    backgroundColor:'#dae0e6'
+  }
+ let box={
+    margin:"10px",
+    padding:"10px"
   }
   //--------------------------------------------
   //-----------------------------------------
   return (
     <div style={homePage}>
       {/* image---------------------- */}
-      <div className="media d-flex flex-column">
+      <div className="media d-flex flex-column" style={box}>
         {/* image  */}
         <div style={imgStyles}>
           {post.file && typeof post.file === 'string' && (post.file.includes('.mp4') || post.file.includes('.ogg') || post.file.includes('.webm')) ? (

@@ -13,9 +13,9 @@ export default function LoginPage() {
     <div style={{margin:"20vh 10vw"}}>
       <form onSubmit={loginUser}>
         <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
-          <MDBInput wrapperClass="mb-4" label="Email" id="form1" type="email" name="email" required />
-          <MDBInput wrapperClass="mb-4" label="Password" id="form2" type="password" name="password" required />
-
+          <MDBInput wrapperClass="mb-4" label="Email" id="form1" type="email" name="email" />
+          <MDBInput wrapperClass="mb-4" label="Password" id="form2" type="password" name="password" />
+          <div class="invalid-feedback">Please choose a username.</div>
           <div className="d-flex justify-content-between mx-3 mb-4">
             <Link to="/reset-password">Forgot password?</Link>
           </div>

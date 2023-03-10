@@ -69,29 +69,39 @@ export const AuthProvider=({children})=>{
         }
     }
     let loginUser=async (event)=>{
-        localStorage.getItem('user_info')
+        try{localStorage.getItem('user_info')}catch(err){console.log("cant find");}
+        
         event.preventDefault();
         if(!localStorage.getItem('access')){
             console.log('user login')
-            let response =await fetch('http://localhost:8000/auth/jwt/create',
-                {
-                    method:'POST',
-                    headers:{'Content-Type':'application/json'},
-                    body:JSON.stringify({'email':event.target.email.value,'password':event.target.password.value})
+            try{
+                let response =await fetch('http://localhost:8000/auth/jwt/create',
+                    {
+                        method:'POST',
+                        headers:{'Content-Type':'application/json'},
+                        body:JSON.stringify({'email':event.target.email.value,'password':event.target.password.value})
+                    }
+                )
+                let data=await response.json();
+                if(response.status==200){
+                    //setAuth({...auth,'access':data.access,'refresh':data.refresh})
+                    localStorage.setItem('access',JSON.stringify(data.access));
+                    localStorage.setItem('refresh',JSON.stringify(data.refresh));
+                    //console.log('user_info',auth);
+                    loadUser();
+                }else{
+                    alert("login failed");
                 }
-            )
-            let data=await response.json();
-            //console.log(data);
-            if(response.status==200){
-                //setAuth({...auth,'access':data.access,'refresh':data.refresh})
-                localStorage.setItem('access',JSON.stringify(data.access));
-                localStorage.setItem('refresh',JSON.stringify(data.refresh));
-                //console.log('user_info',auth);
-                loadUser();
-            }else{
-                console.log('login failed');
             }
-        }else{loadUser();}
+            catch(err){
+                console.log(err);
+            }
+        }else{
+            try{
+                loadUser();
+            }catch(err){console.log(err)}
+            
+        }
     }
     let logoutUser=()=>{ 
         setAuth({
@@ -104,32 +114,34 @@ export const AuthProvider=({children})=>{
         localStorage.removeItem('refresh');
         localStorage.removeItem('user_info'); 
         localStorage.removeItem('status');  
-        navigate('/');
+        navigate('/login');
     }
     let signupUser=async (event)=>{
         event.preventDefault();
-        
-        let response = await fetch('http://localhost:8000/auth/users/',
-            {
-                method:'POST',
-                headers:{'Content-Type':'application/json'},
-                body:JSON.stringify({
-                    'first_name':event.target.first_name.value,
-                    'last_name':event.target.last_name.value,
-                    'email':event.target.email.value,
-                    'password':event.target.password.value,
-                    're_password':event.target.re_password.value,
-                })
+        try{
+                let response = await fetch('http://localhost:8000/auth/users/',
+                {
+                    method:'POST',
+                    headers:{'Content-Type':'application/json'},
+                    body:JSON.stringify({
+                        'first_name':event.target.first_name.value,
+                        'last_name':event.target.last_name.value,
+                        'email':event.target.email.value,
+                        'password':event.target.password.value,
+                        're_password':event.target.re_password.value,
+                    })
+                }
+            )
+            let data=await response.json();
+            if(response.status==201){
+                alert("SIGN UP SUCCESS");
+                navigate('/login');
+                
+            }else{
+                console.log('SIGNUP_FAILED');
             }
-        )
-        let data=await response.json();
-        if(response.status==201){
-            alert("SIGN UP SUCCESS");
-            navigate('/login');
-            
-        }else{
-            console.log('SIGNUP_FAILED');
-        }
+        }catch(err){console.log(err)}
+        
     }
     let verifyUser=async(uid,token)=>{
         console.log('verifying user');
@@ -175,13 +187,21 @@ export const AuthProvider=({children})=>{
 
     const [commentCount, setCommentCount] = useState(0);
 
-    const googleLogin=async()=>{
-        try{
-            console.log("google login");
-        }catch(err){
-            console.log("error");
+    let googleLogin = async () => {
+        try {
+          console.log("google login");
+          const response = await fetch(`http://localhost:8000/auth/o/google-oauth2/?redirect_uri=http://localhost:8000/`,
+            {
+              method: "GET",
+            }
+          );
+          const data = await response.json();
+          console.log(data);
+          window.location.replace(response.data.authorization_url);
+        } catch (err) {
+          console.log("error");
         }
-    }
+      };
     //----------------------------------------------------------
     useEffect(()=>{
         //console.log('inside use effect :',auth);

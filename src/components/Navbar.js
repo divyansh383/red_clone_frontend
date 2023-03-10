@@ -12,7 +12,6 @@ export default function Navbar() {
   //css-----
   let userInfoBox={
     backgroundColor:'#DBDBDB',
-    width:'10vw',
     padding:'3px',
     borderRadius:'15px'
   }
@@ -34,9 +33,9 @@ export default function Navbar() {
   
   return (
     <div>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{position: 'fixed', top: 0, left: 0, width: '100%' }}>
-      <div className="container-fluid" style={{display:'flex',justifyContent:'space-around'}}>
-      <button
+    <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex flex-row" style={{position: 'fixed', top: 0, left: 0, width: '100%',zIndex:"2",justifyContent:"space-around" }}>
+      <div className="container-fluid mx-5">
+         <button
             className="navbar-toggler"
             type="button"
             data-mdb-toggle="collapse"
@@ -47,7 +46,7 @@ export default function Navbar() {
           >
             <i className="fas fa-bars"></i>
           </button>
-        <div>
+        
           <div className="collapse navbar-collapse" id="navbarSupportedContent" >
             
             <Link className="navbar-brand mt-2 mt-lg-0"  to='/'>
@@ -58,8 +57,7 @@ export default function Navbar() {
                 loading="lazy"
               />
             </Link>
-            <div className="d-flex flex-row">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <a className="nav-link" href="#">Dashboard</a>
                 </li>
@@ -70,19 +68,15 @@ export default function Navbar() {
                   <a className="nav-link" href="#">Projects</a>
                 </li>
               </ul>
-            </div>
           </div>
-        </div>
 
-        <div>
-          <div >
-            <form onSubmit={handleSearch} style={{display:'flex',flexDirection:'rows'}}>
-              <MDBInput  label='Search' type='search' name="search" style={{borderRadius:'0px 0px 0px 0px'}}
-                         onChange={(event)=>{setSearchInput(event.target.value);} } onSubmit={handleSearch}
+          <div className="d-flex align-items-center" style={{marginRight:"50px"}}>
+            <form onSubmit={handleSearch}>
+              <MDBInput  label='Search' type='search' name="search" style={{width:"25vw"}}
+                        onChange={(event)=>{setSearchInput(event.target.value);} } onSubmit={handleSearch}
               />
             </form>
           </div>
-        </div>
 
         <div className="d-flex align-items-center">
           <a className="text-reset me-3" href="#">
@@ -142,7 +136,7 @@ export default function Navbar() {
                     height="25"
                     loading="lazy"
                   />
-                  <div style={{paddingLeft:'5px'}} className="hide-name">
+                  <div style={{paddingLeft:'5px',paddingRight:'10px'}} className="hide-name">
                     <small style={{fontWeight:'bold'}}>{User.first_name}</small>
                   </div>
                 </a>

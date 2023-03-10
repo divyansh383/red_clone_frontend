@@ -64,13 +64,13 @@ export default function Home(props) {
           <div style={card}>
             <div className="btn-group">
               <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" onChange={()=>{getFilter('new')}}/>
-              <label className="btn btn-secondary" for="option1">New</label>
+              <label className="btn btn-primary" for="option1">New</label>
 
               <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off"  onChange={()=>{getFilter('hot')}}/>
-              <label className="btn btn-secondary" for="option2">Hot</label>
+              <label className="btn btn-primary" for="option2">Hot</label>
 
               <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off"  onChange={()=>{getFilter('top')}}/>
-              <label className="btn btn-secondary" for="option3">Top</label>
+              <label className="btn btn-primary" for="option3">Top</label>
             </div>
           </div>
           {searchResult && searchResult.length > 0 ?
@@ -103,7 +103,6 @@ export default function Home(props) {
         </div>
         <div className='Lbar'>
           <div>
-            <p>Welcome {userdata.first_name}</p>
             <div style={card}>
               <h1>Try premium</h1>
             </div>

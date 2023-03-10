@@ -16,7 +16,7 @@ import ProfilePage from './components/ProfilePage';
 
 //----------------------------------
 let generalCSS={
-  
+  backgroundColor:'#dae0e6'
 }
 //--------------------------------------
 function App() {
