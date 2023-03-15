@@ -107,7 +107,11 @@ export default function Home(props) {
               <h1>Try premium</h1>
             </div>
             <div style={card}>
-              <h1>create community</h1>
+              <div className='d-flex flex-column'>
+                <p>Join a Community</p>
+                <hr></hr>
+                <Link to="/create_a_community"><button className='btn btn-secondary'>Create Community</button></Link>
+              </div>
             </div>
             <div style={card}>
               <h1>terms and conditions</h1>
@@ -119,22 +123,8 @@ export default function Home(props) {
       //------------------------------------------------------
       <div className='generalPage' style={homePage}>
         <div className='centralBar'>
-          <h6 style={{textAlign:"left"}}>Popular Posts</h6>
-          <div className="btn-group btn-group-toggle" data-bs-toggle="buttons" style={card}>
-            <label className="btn btn-secondary active">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked/> NEW
-            </label>
-            <label className="btn btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off"/> HOT
-            </label>
-            <label className="btn btn-secondary">
-              <input type="radio" name="options" id="option3" autocomplete="off"/> TOP
-            </label>
-          </div>
-          <PostBox poster={'div'} caption={'hello'}/>
         </div>
         <div className='Lbar'>
-          <p>second</p>
           </div>
       </div>
       //---------------------------------------------------------

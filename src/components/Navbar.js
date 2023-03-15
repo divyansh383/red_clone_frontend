@@ -10,6 +10,14 @@ export default function Navbar() {
   let {logoutUser}=useContext(AuthContext)
   let User=JSON.parse(localStorage.getItem('user_info'));
   //css-----
+  let buttonstyle={
+    borderRadius: "100px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height:"50px",
+    width:"50px"
+  }
   let userInfoBox={
     backgroundColor:'#DBDBDB',
     padding:'3px',
@@ -17,6 +25,11 @@ export default function Navbar() {
   }
   let [searchUser,setSearchInput]=useState();
   let {searchResult,setSearch}=useContext(AuthContext);
+  const [isVisible, setIsVisible] = useState(false);
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
   let handleSearch=async()=>{
     try {
       const response = await fetch(`http://localhost:8000/search/?s=${searchUser}`);
@@ -29,6 +42,7 @@ export default function Navbar() {
   useEffect(()=>{
     handleSearch();
   },[searchUser])
+  
   //---------
   
   return (
@@ -70,12 +84,24 @@ export default function Navbar() {
               </ul>
           </div>
 
-          <div className="d-flex align-items-center" style={{marginRight:"50px"}}>
+          {/* <div className="d-flex align-items-center" style={{marginRight:"50px"}}>
             <form onSubmit={handleSearch}>
               <MDBInput  label='Search' type='search' name="search" style={{width:"25vw"}}
                         onChange={(event)=>{setSearchInput(event.target.value);} } onSubmit={handleSearch}
               />
             </form>
+          </div> */}
+          <div className="d-flex align-items-center" style={{marginRight:"50px"}}>
+          <button onClick={toggleVisibility} className="btn btn-secondary-outline" style={buttonstyle}>
+            <i className="fa fa-search" aria-hidden="true"></i></button>
+
+            {isVisible && (
+              <form onSubmit={handleSearch} style={{ marginLeft: "10px" }}>
+                <MDBInput  label='Search' type='search' name="search" style={{width:"25vw"}}
+                          onChange={(event)=>{setSearchInput(event.target.value);} } onSubmit={handleSearch}
+                />
+            </form>
+            )}
           </div>
 
         <div className="d-flex align-items-center">

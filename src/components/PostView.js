@@ -102,16 +102,19 @@ export default function PostView(props) {
             <img className="img-fluid" src={post.file} />
           )}
         </div>
+        <br></br>
         {/* body */}
         <div className="media-body">
           <h5 className="mt-0">{(Object.keys(props).length === 0) ? (post.caption) : (props.imgdetails.caption)}</h5>
           <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
           <p className="mb-0">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
         </div>
+        <br></br>
+        <hr></hr>
         {/* comment box */}
         <div>
           <form className="form-group" onSubmit={addComment}>
-              <textarea className="form-control" name="cmText" value={comment} onChange={(event)=>{setComment(event.target.value)}} rows="3" placeholder='add a comments'></textarea>
+              <textarea className="form-control" name="cmText" value={comment} onChange={(event)=>{setComment(event.target.value)}} rows="3" placeholder='add a comment'></textarea>
               <button className="btn btn-primary mb-4" onSubmit={addComment}>Post</button>
           </form>
         </div>

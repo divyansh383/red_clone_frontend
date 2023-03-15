@@ -188,6 +188,7 @@ export const AuthProvider=({children})=>{
     const [commentCount, setCommentCount] = useState(0);
 
     let googleLogin = async () => {
+        console.log("google login")
         try {
           console.log("google login");
           const response = await fetch(`http://localhost:8000/auth/o/google-oauth2/?redirect_uri=http://localhost:8000/`,

@@ -13,7 +13,7 @@ import Navbar from './components/Navbar'
 import AddPost from './components/AddPost';
 import PostView from './components/PostView';
 import ProfilePage from './components/ProfilePage';
-
+import Communityform from './containers/Communityform';
 //----------------------------------
 let generalCSS={
   backgroundColor:'#dae0e6'
@@ -34,6 +34,7 @@ function App() {
             <Route exact path='/post' element={<AddPost/>}/>
             <Route exact path='/postView/:id' element={<PostView/>}/>
             <Route exact path='/profile/:id' element={<ProfilePage/>}/>
+            <Route exact path='/create_a_community' element={<Communityform/>}/>
           </Routes>
         </AuthProvider>
       </HashRouter>
