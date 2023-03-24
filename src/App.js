@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css'
 import { HashRouter, Routes , Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-
+import Footer from './components/Footer';
 //--------------
 import Home from './containers/Home'
 import LoginPage from './containers/LoginPage'
@@ -36,8 +36,10 @@ function App() {
             <Route exact path='/profile/:id' element={<ProfilePage/>}/>
             <Route exact path='/create_a_community' element={<Communityform/>}/>
           </Routes>
+          <Footer/>
         </AuthProvider>
       </HashRouter>
+
     </div>
   );
 }

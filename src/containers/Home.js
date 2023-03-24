@@ -2,6 +2,8 @@ import React, { useContext,useState,useEffect } from 'react'
 import PostBox from '../components/PostBox';
 import AuthContext from '../context/AuthContext'
 import { Link, Navigate } from 'react-router-dom';
+import bgimg from './appbg.jpg';
+import LoginPage from './LoginPage';
 export default function Home(props) {
   let {User}=useContext(AuthContext);
   let userdata=JSON.parse(User.user);
@@ -121,15 +123,14 @@ export default function Home(props) {
       </div>
       :
       //------------------------------------------------------
-      <div className='generalPage' style={homePage}>
-        <div className='centralBar'>
-        </div>
-        <div className='Lbar'>
-          </div>
+      <div className='generalPage ' style={{display:"grid",gridTemplateColumns: "3fr 1fr",}}>
+          <div><img src={bgimg} style={{height: '100%', width: '100%'}} alt="background image" /></div>
+          <div></div>
       </div>
       //---------------------------------------------------------
       }
-      
+    
     </div>
+    
   )
 }

@@ -19,7 +19,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div style={{ margin: '20vh 10vw', backgroundColor: 'white' }}>
+    <div style={{ margin: '75px 0px', backgroundColor: 'white' }}>
       <form onSubmit={handleLoginSubmit}>
         <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
           <MDBInput wrapperClass="mb-4" label="Email" id="form1" type="email" name="email" />

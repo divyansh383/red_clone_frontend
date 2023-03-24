@@ -36,7 +36,7 @@ export default function AddPost() {
           <MDBBtn className="mb-4" onSubmit={makePost}>Post</MDBBtn>
           <div class="dropdown">
             <button class="btn btn-primary dropdown-bs-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Select an option
+              Select a Community
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <input class="form-control dropdown-search" type="text" placeholder="Search..." onChange={(e) => setSearchTerm(e.target.value)} />

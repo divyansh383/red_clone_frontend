@@ -14,7 +14,7 @@ export const AuthProvider=({children})=>{
         isAuthenticated:localStorage.getItem('status'),
     })
     const [searchResult,setSearch]=useState(null);
-    //---user-login-----------------------
+    //---user-auth--------------------------------------------------------------------------------------
     let isAuthenticated=async()=>{
         if(localStorage.getItem('access')){
             let accToken=localStorage.getItem('access').replace(/"/g,'');
@@ -161,7 +161,7 @@ export const AuthProvider=({children})=>{
         else{console.log('ACTIVATION_FAILED')}
     }
 
-    
+    //----------------------------------------------------------------------------------------------------
     let makePost=async (event)=>{
         event.preventDefault();
         console.log('making post');
