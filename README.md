@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+Certainly! Here's a sample README file for your RedClone social media clone app:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# RedClone
 
-## Available Scripts
+RedClone is a social media clone app built with Django in the backend and React in the frontend. It aims to replicate the basic functionality of a social media platform, including user authentication, posting photos/videos, likes/upvotes, sorting posts, search functionality, and a comment and reply system.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- User Authentication: RedClone uses Djoser for user authentication, allowing users to register, log in, and manage their accounts.
+- Posting Media: Users can add photos and videos to share with others.
+- Likes/Upvotes: RedClone implements an upvote-downvote system to enable users to express their preferences on posts.
+- Sorting Posts: Posts can be sorted based on hotness, top, or newness, providing users with different ways to view content.
+- Search Functionality: RedClone allows users to search for specific posts using keywords or filters.
+- Comment and Reply System: The app includes a tree-type comment and reply section for users to engage in discussions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Backend: Django, Djoser, Django Rest Framework , JWT authentication
+- Frontend: React, React Material UI
 
-### `npm test`
+## Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Screenshot 1](public/s1.png)
+![Screenshot 1](public/s2.png)
+![Screenshot 1](public/s3.png)
+![Screenshot 1](public/s4.png)
+![Screenshot 1](public/s5.png)
+![Screenshot 1](public/s6.png)
